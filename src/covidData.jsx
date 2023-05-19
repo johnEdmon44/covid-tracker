@@ -3,7 +3,7 @@ import RenderData from "./renderData";
 
 
 const CovidData = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
 
 
   useEffect(() => {

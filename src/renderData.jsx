@@ -15,10 +15,10 @@ const RenderData = ({ data }) => {
 
 RenderData.propTypes = {
   data: PropTypes.shape({
-    country: PropTypes.string.isRequired,
-    cases: PropTypes.number.isRequired,
-    deaths: PropTypes.number.isRequired,
-    recovered: PropTypes.number.isRequired,
+    country: PropTypes.string,
+    cases: PropTypes.number,
+    deaths: PropTypes.number,
+    recovered: PropTypes.number,
   }).isRequired,
 };
 
