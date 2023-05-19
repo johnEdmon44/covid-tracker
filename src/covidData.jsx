@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import RenderData from "./renderData";
 
 
 const CovidData = () => {
@@ -10,7 +11,7 @@ const CovidData = () => {
       try {
         const covidApi = "https://disease.sh/v3/covid-19/countries/Philippines?yesterday=yesterday&twoDaysAgo=twoDaysAgo&strict=true";
         const response = await fetch(covidApi);
-        const jsonData = await response.json;
+        const jsonData = await response.json();
         setData(jsonData);
         console.log(jsonData)
       } catch(error) {
@@ -20,6 +21,8 @@ const CovidData = () => {
 
     getCovidData();
   }, []);
+
+  return <RenderData data={data} />;
 }
 
 
