@@ -3,7 +3,7 @@ import RenderData from "./renderData";
 
 
 const CovidData = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("");
 
