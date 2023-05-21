@@ -5,12 +5,17 @@ import RenderData from "./renderData";
 const CovidData = () => {
   const [data, setData] = useState({});
   const [countries, setCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState("");
 
+
+  const handleCountryChange = (event) => {
+    setSelectedCountry(event.target.value);
+  };
 
   useEffect(() => {
     const getCovidData = async () => {
       try {
-        const covidApi = "https://disease.sh/v3/covid-19/countries/philippines?yesterday=yesterday&twoDaysAgo=twoDaysAgo&allowNull=allowNull";
+        const covidApi = `https://disease.sh/v3/covid-19/countries/${selectedCountry}?yesterday=yesterday&twoDaysAgo=twoDaysAgo&allowNull=allowNull`;
         const response = await fetch(covidApi);
         const jsonData = await response.json();
         setData(jsonData);
@@ -21,7 +26,7 @@ const CovidData = () => {
     };
 
     getCovidData();
-  }, []);
+  }, [selectedCountry]);
 
 
   useEffect(() => {
@@ -41,7 +46,7 @@ const CovidData = () => {
   }, []);
 
 
-  return <RenderData data={data} countries={countries}/>;
+  return <RenderData data={data} countries={countries} handleCountryChange={handleCountryChange} />;
 }
 
 
