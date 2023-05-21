@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 
 
-const RenderData = ({ data, countries, handleCountryChange }) => {
+const RenderData = ({ data, countries, handleCountryChange, selectedCountry }) => {
   return (
     <>
       <div>
@@ -12,7 +12,7 @@ const RenderData = ({ data, countries, handleCountryChange }) => {
       </div>
 
       <div>
-        <select name="countris" id="countries" onChange={handleCountryChange}>
+        <select name="countris" id="countries" onChange={handleCountryChange} value={selectedCountry}>
           <option value="">Select country</option>
           {countries.map((country, index) => (
             <option key={index} value={country}>
@@ -35,6 +35,7 @@ RenderData.propTypes = {
   }).isRequired,
   countries: PropTypes.arrayOf(PropTypes.string),
   handleCountryChange: PropTypes.func,
+  selectedCountry: PropTypes.string,
 };
 
 export default RenderData;

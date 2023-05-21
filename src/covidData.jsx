@@ -5,7 +5,7 @@ import RenderData from "./renderData";
 const CovidData = () => {
   const [data, setData] = useState({});
   const [countries, setCountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("Philippines");
 
 
   const handleCountryChange = (event) => {
@@ -46,7 +46,7 @@ const CovidData = () => {
   }, []);
 
 
-  return <RenderData data={data} countries={countries} handleCountryChange={handleCountryChange} />;
+  return <RenderData data={data} countries={countries} handleCountryChange={handleCountryChange} selectedCountry={selectedCountry} />;
 }
 
 
