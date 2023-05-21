@@ -40,8 +40,8 @@ const CovidData = () => {
     fetchCountries();
   }, []);
 
-  
-  return <RenderData data={data} />;
+
+  return <RenderData data={data} countries={countries}/>;
 }
 
 
