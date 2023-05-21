@@ -4,12 +4,13 @@ import RenderData from "./renderData";
 
 const CovidData = () => {
   const [data, setData] = useState({});
+  const [countries, setCountries] = useState([]);
 
 
   useEffect(() => {
     const getCovidData = async () => {
       try {
-        const covidApi = "https://disease.sh/v3/covid-19/countries/Philippines?yesterday=yesterday&twoDaysAgo=twoDaysAgo&strict=true";
+        const covidApi = "https://disease.sh/v3/covid-19/countries/philippines?yesterday=yesterday&twoDaysAgo=twoDaysAgo&allowNull=allowNull";
         const response = await fetch(covidApi);
         const jsonData = await response.json();
         setData(jsonData);
@@ -22,6 +23,24 @@ const CovidData = () => {
     getCovidData();
   }, []);
 
+
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await fetch("https://disease.sh/v3/covid-19/countries");
+        const data = await response.json();
+        const countryNames = data.map(country => country.country);
+        setCountries(countryNames);
+        console.log(countryNames);
+      } catch (error) {
+        console.log("Error fetching country data:", error);
+      }
+    };
+
+    fetchCountries();
+  }, []);
+
+  
   return <RenderData data={data} />;
 }
 
