@@ -53,6 +53,25 @@ const CovidData = () => {
       const data = await response.json();
       setHistoryData(data);
       console.log(data);
+
+      const cases = data.timeline.cases;
+      const dates = Object.keys(cases);
+      const newCases = [];
+
+
+      for (let i = 1; i < dates.length; i++) {
+        const currentDate = dates[i];
+        const previousDate = dates[i - 1];
+        const currentCases = cases[currentDate];
+        const previousCases = cases[previousDate];
+        const dailyNewCases = currentCases - previousCases;
+
+        if (dailyNewCases >= 0) {
+          newCases.push({ date: currentDate, count: dailyNewCases });
+        }
+        console.log(dailyNewCases);
+        console.log(newCases);
+      }
     };
 
     getHistoricalData();
