@@ -6,6 +6,7 @@ const CovidData = () => {
   const [data, setData] = useState({});
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("Philippines");
+  const [historyData, setHistoryData] = useState({});
 
 
   const handleCountryChange = (event) => {
@@ -45,6 +46,17 @@ const CovidData = () => {
     fetchCountries();
   }, []);
 
+
+  useEffect(() => {
+    const getHistoricalData = async () => {
+      const response = await fetch(`https://disease.sh/v3/covid-19/historical/${selectedCountry}?lastdays=30`);
+      const data = await response.json();
+      setHistoryData(data);
+      console.log(data);
+    };
+
+    getHistoricalData();
+  }, [selectedCountry]);
 
   return <RenderData data={data} countries={countries} handleCountryChange={handleCountryChange} selectedCountry={selectedCountry} />;
 }
