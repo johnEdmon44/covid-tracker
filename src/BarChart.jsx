@@ -14,7 +14,6 @@ const BarChart = ({ cases }) => {
     ],
   };
 
-  console.log(cases)
 
   return <Bar data={chartData} />;
 };

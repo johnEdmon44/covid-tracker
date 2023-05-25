@@ -22,7 +22,6 @@ const CovidData = () => {
         const response = await fetch(covidApi);
         const jsonData = await response.json();
         setData(jsonData);
-        console.log(jsonData)
       } catch(error) {
         console.log("error fetching covid data" + error);
       }
@@ -39,7 +38,6 @@ const CovidData = () => {
         const data = await response.json();
         const countryNames = data.map(country => country.country);
         setCountries(countryNames);
-        console.log(countryNames);
       } catch (error) {
         console.log("Error fetching country data:", error);
       }
@@ -54,7 +52,6 @@ const CovidData = () => {
       const response = await fetch(`https://disease.sh/v3/covid-19/historical/${selectedCountry}?lastdays=30`);
       const data = await response.json();
       setHistoryData(data);
-      console.log(data);
 
       const cases = data.timeline.cases;
       const dates = Object.keys(cases);
