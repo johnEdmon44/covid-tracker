@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import RenderData from "./renderData";
+import BarChart from "./BarChart";
 
 
 const CovidData = () => {
@@ -7,6 +8,7 @@ const CovidData = () => {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("Philippines");
   const [historyData, setHistoryData] = useState({});
+  const [cases, setCases] = useState([]);
 
 
   const handleCountryChange = (event) => {
@@ -56,8 +58,8 @@ const CovidData = () => {
 
       const cases = data.timeline.cases;
       const dates = Object.keys(cases);
-      const newCases = [];
 
+      setCases([]); // Reset the cases array before adding new cases
 
       for (let i = 1; i < dates.length; i++) {
         const currentDate = dates[i];
@@ -67,17 +69,21 @@ const CovidData = () => {
         const dailyNewCases = currentCases - previousCases;
 
         if (dailyNewCases >= 0) {
-          newCases.push({ date: currentDate, count: dailyNewCases });
+          setCases(prevCases => [...prevCases, { date: currentDate, count: dailyNewCases }]);
         }
         console.log(dailyNewCases);
-        console.log(newCases);
       }
     };
 
     getHistoricalData();
   }, [selectedCountry]);
 
-  return <RenderData data={data} countries={countries} handleCountryChange={handleCountryChange} selectedCountry={selectedCountry} />;
+  return (
+    <>
+      <RenderData data={data} countries={countries} handleCountryChange={handleCountryChange} selectedCountry={selectedCountry} />
+      <BarChart cases={cases} />
+    </>
+  );
 }
 
 
