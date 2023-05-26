@@ -1,0 +1,62 @@
+*,*::after,*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.bar--chart {
+  width: 80%;
+}
+
+
+.data {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgb(51, 51, 159);
+}
+
+
+.data--container {
+  display: flex;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 1%;
+  gap: 20px;
+  border: 1px solid rgb(51, 51, 159);
+  border-radius: 10px;
+}
+
+
+.select--container {
+  padding: 1rem;
+}
+
+
+.select {
+  padding: 10px;
+  outline: none;
+  border: 1px solid rgb(51, 51, 159);
+}
+
+
+.cases h1{
+  font-size: 2rem;
+  letter-spacing: 5px;
+  padding: 1rem;
+}
+
+
+.cases div p:first-child {
+  letter-spacing: 5px;
+}
+
+
+.cases div > p {
+  padding: 1rem;
+}

@@ -15,7 +15,11 @@ const BarChart = ({ cases }) => {
   };
 
 
-  return <Bar data={chartData} />;
+  return (
+    <div className="bar--chart">
+      <Bar data={chartData} />
+    </div>
+  );
 };
 
 BarChart.propTypes = {

@@ -49,7 +49,7 @@ const CovidData = () => {
 
   useEffect(() => {
     const getHistoricalData = async () => {
-      const response = await fetch(`https://disease.sh/v3/covid-19/historical/${selectedCountry}?lastdays=15`);
+      const response = await fetch(`https://disease.sh/v3/covid-19/historical/${selectedCountry}?lastdays=30`);
       const data = await response.json();
       setHistoryData(data);
 
@@ -76,10 +76,10 @@ const CovidData = () => {
   }, [selectedCountry]);
 
   return (
-    <>
+    <section className="data--container">
       <RenderData data={data} countries={countries} handleCountryChange={handleCountryChange} selectedCountry={selectedCountry} />
       <BarChart cases={cases} />
-    </>
+    </section>
   );
 }
 
