@@ -11,7 +11,11 @@ html {
 
 
 .bar--chart {
-  width: 80%;
+  max-width: 100%;
+  overflow-x: auto;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
 
 
@@ -27,10 +31,9 @@ html {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 1%;
-  gap: 20px;
   border: 1px solid rgb(51, 51, 159);
   border-radius: 10px;
-}
+  position: relative}
 
 
 .select--container {
@@ -64,4 +67,50 @@ html {
 
 .cases div {
   border-top: 1px solid rgb(51, 51, 159);
+}
+
+
+
+/* MEDIA QUERY */
+@media (min-width: 1025px) {
+  body {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  body {
+    margin: 0;
+  }
+
+
+  .data--container {
+    margin: 0;
+  }
+
+
+  .cases div {
+    display: flex;
+  }
+
+  .data--container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cases div {
+    border-bottom: 1px solid rgb(51, 51, 159);
+  }
+
+  .bar--chart {
+    height: 20rem;
+    width: 100%;
+    overflow: auto;
+  }
+
+  select {
+    width: 10rem;
+  }
 }
