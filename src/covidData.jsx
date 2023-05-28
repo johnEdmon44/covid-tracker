@@ -6,13 +6,17 @@ import BarChart from "./BarChart";
 const CovidData = () => {
   const [data, setData] = useState({});
   const [countries, setCountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState("Philippines");
+  const [selectedCountry, setSelectedCountry] = useState(
+    localStorage.getItem("selectedCountry") || "Philippines"
+  );
   const [historyData, setHistoryData] = useState({});
   const [cases, setCases] = useState([]);
 
 
   const handleCountryChange = (event) => {
-    setSelectedCountry(event.target.value);
+    const country = event.target.value;
+    setSelectedCountry(country);
+    localStorage.setItem("selectedCountry", country);
   };
 
   useEffect(() => {
