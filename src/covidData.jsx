@@ -6,9 +6,7 @@ import BarChart from "./BarChart";
 const CovidData = () => {
   const [data, setData] = useState({});
   const [countries, setCountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState(
-    localStorage.getItem("selectedCountry") || "Philippines"
-  );
+  const [selectedCountry, setSelectedCountry] = useState(localStorage.getItem("selectedCountry" || "Philippines"));
   const [historyData, setHistoryData] = useState({});
   const [cases, setCases] = useState([]);
 
