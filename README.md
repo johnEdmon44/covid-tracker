@@ -18,7 +18,7 @@ The COVID-19 Tracker is a web application that provides real-time data and stati
 
 ## Demo
 
-You can see a live demo of the COVID-19 Tracker application [here](link-to-demo-if-available).
+You can see a live demo of the COVID-19 Tracker application [here](https://johnedmon44.github.io/covid-tracker/).
 
 ## Getting Started
 
