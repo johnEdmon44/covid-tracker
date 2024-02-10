@@ -1,11 +1,12 @@
-import './App.css'
 import CovidData from './covidData'
 import RenderData from './renderData'
 
 function App() {
   return (
     <>
-      <CovidData render={(data) => <RenderData data={data} />} />
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
     </>
   )
 }
