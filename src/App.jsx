@@ -1,6 +1,3 @@
-import CovidData from './covidData'
-import RenderData from './renderData'
-
 function App() {
   return (
     <>
