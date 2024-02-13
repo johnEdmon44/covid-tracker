@@ -20,7 +20,7 @@ const CovidData = () => {
   useEffect(() => {
     const getCovidData = async () => {
       try {
-        const covidApi = `https://disease.sh/v3/covid-19/countries/${selectedCountry}?yesterday=yesterday&twoDaysAgo=twoDaysAgo&allowNull=allowNull`;
+        const covidApi = `/api/countries/${selectedCountry}?yesterday=yesterday&twoDaysAgo=twoDaysAgo&allowNull=allowNull`;
         const response = await fetch(covidApi);
         const jsonData = await response.json();
         setData(jsonData);
@@ -36,7 +36,7 @@ const CovidData = () => {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await fetch("https://disease.sh/v3/covid-19/countries");
+        const response = await fetch("/api/countries");
         const data = await response.json();
         const countryNames = data.map(country => country.country);
         setCountries(countryNames);
@@ -51,7 +51,7 @@ const CovidData = () => {
 
   useEffect(() => {
     const getHistoricalData = async () => {
-      const response = await fetch(`https://disease.sh/v3/covid-19/historical/${selectedCountry}?lastdays=30`);
+      const response = await fetch(`/api/countries/${selectedCountry}?lastdays=30`);
       const data = await response.json();
       setHistoryData(data);
 
