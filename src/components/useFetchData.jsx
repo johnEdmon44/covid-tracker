@@ -15,7 +15,7 @@ const useFetchData = (endpoint) => {
         if(cacheData && currentTime - cacheData.timestamp < CACHE_EXPIRY_TIME) {
           setCasesData(cacheData.data);
         } else {
-          const response = await fetch(`https://covid-api.com/api/${endpoint}?date=2020-12-31`);
+          const response = await fetch(`/api/${endpoint}?date=2020-12-31`);
           const data = await response.json();
           setCasesData(data);
           localStorage.setItem(endpoint, JSON.stringify({ data, timestamp: currentTime }));
